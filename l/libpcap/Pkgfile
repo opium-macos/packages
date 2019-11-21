@@ -1,0 +1,14 @@
+name="libpcap"
+description="Portable C/C++ library for network traffic capture"
+homepage="https://tcpdump.org"
+version="1.9.1"
+
+sources=("https://www.tcpdump.org/release/libpcap-${version}.tar.gz")
+sha256=("SKIP")
+
+build () {
+    cd "$name-$version"
+    ./configure --prefix="$prefix" --enable-ipv6 --disable-universal
+    make
+    make install
+}

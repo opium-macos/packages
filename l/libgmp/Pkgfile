@@ -1,0 +1,14 @@
+name="libgmp"
+description="GNU Multiple Precision arithmetic library"
+homepage="https://gmplib.org"
+version="6.1.2"
+
+sources=("https://gmplib.org/download/gmp/gmp-${version}.tar.xz")
+sha256=("SKIP")
+
+build() {
+    cd "$name-$version"
+    ./configure --prefix="$prefix"
+    make
+    make install
+}
