@@ -1,0 +1,19 @@
+name="tree"
+version="1.8.0"
+homepage="http://mama.indstate.edu/users/ice/tree/"
+description="Recursive directory listing command that produces a depth indented listing of files"
+
+sources=("ftp://mama.indstate.edu/linux/tree/tree-1.8.0.tgz"
+	"Makefile::macos_makefile")
+sha256=("SKIP"
+	"SKIP")
+
+no_extract=("Makefile")
+
+build() {
+    mv Makefile "$name-$version"
+    cd "$name-$version"
+    make
+    make install prefix=$prefix
+}
+

@@ -3,14 +3,13 @@ description="Basic file, shell and text manipulation utilities of the GNU operat
 homepage="https://www.gnu.org/software/coreutils/"
 version="8.31"
 
-sources=("coreutils.tar.xz::https://ftp.gnu.org/pub/gnu/coreutils/coreutils-${version}.tar.xz")
+sources=("https://ftp.gnu.org/pub/gnu/coreutils/coreutils-${version}.tar.xz")
 sha256=("SKIP")
 
 add_option "--with-libgmp" "Compile coreutils using GNU libgmp" "libgmp"
 add_option "--with-libpcap" "Compile coreutils using libcap" "libpcap"
 
 build() {
-    log "$prefix"
     cd "$name-$version"
     if has_option "with-gmp"
     then
