@@ -7,7 +7,7 @@ sources=("https://gmplib.org/download/gmp/gmp-${version}.tar.xz")
 sha256=("SKIP")
 
 build() {
-    cd "$name-$version"
+    cd "gmp-$version"
     ./configure --prefix="$prefix"
     make
     make install

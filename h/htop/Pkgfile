@@ -1,0 +1,15 @@
+name="htop"
+version="2.2.0"
+homepage="https://hisham.hm/htop/"
+description="Interactive process viewer for Unix systems"
+
+sources=("http://hisham.hm/htop/releases/$version/$name-$version.tar.gz")
+sha256=("SKIP")
+
+build() {
+    cd "$name-$version"
+    ./configure --prefix="$prefix"
+    make
+    make install
+    rm -rf "$prefix/share/applications" "$prefix/share/pixmaps" #Useless on macOS
+}
